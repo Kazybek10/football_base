@@ -1,0 +1,7 @@
+<h1>Players#index</h1>
+<ul>
+  <% @players.each do |player| %>
+    <li><%= link_to "#{player.first_name} #{player.last_name}", player_path(player) %></li>
+  <% end %>
+</ul>
+

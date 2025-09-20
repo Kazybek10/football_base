@@ -1,0 +1,5 @@
+<h1><%= @player.first_name %> <%= @player.last_name %></h1>
+<p>Position: <%= @player.position %></p>
+<p>Date of Birth: <%= @player.birth_date %></p>
+<p>Nationality: <%= @player.nationality %></p>
+<p>Club: <%= link_to @player.club.name, club_path(@player.club) %></p>

@@ -1,0 +1,10 @@
+<h1><%= @club.name %></h1>
+<p>Founded_year: <%= @club.founded_year %></p>
+<p> Stadium_name: <%= @club.stadium_name %></p>
+<p> League: <%= link_to @club.league.name, league_path(@club.league) %></p>
+<h2> Players:</h2>
+<ul>
+  <% @club.players.each do |player| %>
+    <li><%= link_to "#{player.first_name} #{player.last_name}", player_path(player) %></li>
+  <% end %>
+</ul>
