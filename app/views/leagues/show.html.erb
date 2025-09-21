@@ -1,8 +1,7 @@
 <h1><%= @league.name %></h1>
-<h2>Клубы в лиге:</h2>
+<h2>Clubs in league:</h2>
 <ul>
   <% @league.clubs.each do |club| %>
     <li><%= link_to club.name, club_path(club) %></li>
   <% end %>
 </ul>
-    
