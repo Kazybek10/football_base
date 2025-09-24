@@ -67,3 +67,5 @@ group :test do
 end
 
 gem 'httparty'
+gem 'bootstrap', '~> 5.3.0'
+gem 'sassc-rails'
