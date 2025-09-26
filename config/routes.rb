@@ -20,6 +20,6 @@ Rails.application.routes.draw do
   resources :players, only: [:index, :show]
 
   # Setting the root page
-  root 'leagues#index'
+  root 'pages#home'
 
 end
