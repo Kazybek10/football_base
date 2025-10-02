@@ -1,26 +1,48 @@
 <!DOCTYPE html>
 <html>
   <head>
-    </head>
+      <title>Football Base</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <%= javascript_importmap_tags %>
+    <%= yield :stylesheets %>
+  </head>
 
   <body>
-    <header>
-      <h1><%= link_to 'Football Base', root_path %></h1> 
-      <nav>
-        <ul>
-          <li><%= link_to 'Home', root_path %></li>
-          <li><%= link_to 'Leagues', leagues_path %></li>
-          <li><%= link_to 'Clubs', clubs_path %></li>
-          <li><%= link_to 'Players', players_path %></li>
+    <nav class="navbar">
+      <div class="navbar-container">
+        <a href="<%= root_path %>" class="navbar-brand">Football Base</a>
+        <ul class="navbar-buttons">
+          <li><a href="<%= leagues_path %>" class="navbar-item">Leagues</a></li>
+          <li><a href="<%= clubs_path %>" class="navbar-item">Clubs</a></li>
+          <li><a href="<%= players_path %>" class="navbar-item">Players</a></li>
         </ul>
-      </nav>
-    </header>
+      </div>
+    </nav>
+    
+    <div class="container mt-4">
+      <% flash.each do |type, msg| %>
+        <div class="alert alert-<%= type == 'notice' ? 'success' : 'danger' %>" role="alert">
+          <%= msg %>
+        </div>
+      <% end %>
+    </div>
 
-    <main>
-      <%= yield %>
-    </main>
+    <%= yield %>
 
-    <footer>
-      </footer>
+    <footer class="footer">
+      <div class="footer-container">
+        <p>&copy; 2025 Football Base. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#">About Us</a>
+          <a href="#">Contact</a>
+          <a href="#">Privacy Policy</a>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
